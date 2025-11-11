@@ -5,17 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Curso de Francés | IUE</title>
 
-  <!-- 🚀 Redirección inteligente -->
-  <script>
-    // Redirige solo si el usuario NO viene como invitado (?guest=true)
-    const params = new URLSearchParams(window.location.search);
-    const invitado = params.get("guest");
-
-    if (!invitado && (window.location.pathname === "/" || window.location.pathname.toLowerCase().endsWith("index.html"))) {
-      window.location.href = "register.html";
-    }
-  </script>
-
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -100,7 +89,7 @@
   <header class="navbar fixed top-0 inset-x-0 z-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between">
       <!-- Logo + título -->
-      <a href="Index.html" class="flex items-center gap-3">
+      <a href="Index1.html" class="flex items-center gap-3">
         <img
           src="logo-iue.png"
           alt="Institución Universitaria de Envigado"
@@ -113,7 +102,7 @@
 
       <!-- Menú principal -->
       <nav class="relative flex items-center gap-6 sm:gap-8 text-slate-700 font-medium">
-        <a href="Index.html" class="hover:text-blue-600 transition">Inicio</a>
+        <a href="Index1.html" class="hover:text-blue-600 transition">Inicio</a>
         <a href="#" class="hover:text-blue-600 transition">Contacto</a>
         <a href="#" class="hover:text-blue-600 transition">Notas</a>
 
@@ -255,7 +244,8 @@
 
     document.addEventListener('click', (e) => {
       if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.add('hidden'); menu.classList.remove('show');
+        menu.classList.add('hidden'); 
+        menu.classList.remove('show');
       }
     });
 
