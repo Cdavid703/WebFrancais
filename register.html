@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro | Aprende Francés con David Jaramillo</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+      background-size: 300% 300%;
+      animation: gradientMove 12s ease-in-out infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    .register-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      background: white;
+      color: #1f2937;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .input-field:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary {
+      width: 100%;
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #1d4ed8;
+    }
+
+    .btn-secondary {
+      width: 100%;
+      background-color: #e5e7eb;
+      color: #1f2937;
+      font-weight: 500;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #d1d5db;
+    }
+
+    .btn-external {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background-color: white;
+      border: 1px solid #d1d5db;
+      color: #374151;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-external:hover {
+      background-color: #f3f4f6;
+    }
+
+    .btn-external img {
+      width: 24px;
+      height: 24px;
+    }
+
+    #formMessage {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4">
+  <div class="register-card p-8 w-full max-w-md text-center">
+    <h1 class="text-3xl font-bold text-blue-700 mb-2">
+      Apprends le français <span class="text-gray-800 text-lg font-semibold">FR</span> 🇫🇷
+    </h1>
+    <p class="text-gray-600 mb-6">
+      Regístrate para comenzar tu camino hacia el dominio del francés.
+    </p>
+
+    <!-- FORMULARIO -->
+    <form id="registerForm" class="space-y-4 text-center">
+      <input
+        type="text"
+        id="name"
+        class="input-field"
+        placeholder="Nombre completo"
+        required
+      />
+      <input
+        type="email"
+        id="email"
+        class="input-field"
+        placeholder="Correo electrónico"
+        required
+      />
+      <input
+        type="password"
+        id="password"
+        class="input-field"
+        placeholder="Contraseña"
+        required
+      />
+
+      <button type="submit" class="btn-primary mt-2">Registrarme</button>
+    </form>
+
+    <!-- Mensaje dinámico -->
+    <p id="formMessage" class="text-gray-600"></p>
+
+    <!-- Botón para avanzar sin registro -->
+    <a href="index.html" class="block mt-3">
+      <button class="btn-secondary">Avanzar sin registrarme</button>
+    </a>
+
+    <!-- Separador -->
+    <div class="flex items-center my-6">
+      <hr class="flex-grow border-gray-300" />
+      <span class="px-2 text-gray-500 text-sm">o</span>
+      <hr class="flex-grow border-gray-300" />
+    </div>
+
+    <!-- Botón de Google -->
+    <button id="googleBtn" class="btn-external">
+      <img
+        src="https://www.svgrepo.com/show/475656/google-color.svg"
+        alt="Google"
+      />
+      <span>Registrarme con Google</span>
+    </button>
+
+    <!-- Enlace de inicio de sesión -->
+    <p class="text-sm text-gray-500 mt-6">
+      ¿Ya tienes una cuenta?
+      <a href="#" class="text-blue-600 hover:underline font-medium"
+        >Inicia sesión</a
+      >
+    </p>
+  </div>
+
+  <script src="./js/js-register.js"></script>
+</body>
+</html>

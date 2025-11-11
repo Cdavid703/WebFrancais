@@ -1,0 +1,92 @@
+/* ---------- Fondo animado ---------- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+
+/* ---------- Inputs ---------- */
+.input-field {
+  @apply w-full p-3 border border-gray-300 rounded-lg bg-white placeholder-gray-400 
+  focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-400 hover:shadow-sm transition-all duration-300;
+}
+
+/* ---------- Botón principal ---------- */
+.btn-primary {
+  @apply block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg 
+  transition-all duration-300 text-center shadow-md;
+}
+
+/* ---------- Botón externo (Google) ---------- */
+.btn-external {
+  @apply w-full flex items-center justify-center gap-3 bg-white border border-gray-300 hover:bg-gray-100 
+  rounded-lg py-3 shadow-sm transition-all duration-300 text-gray-700 font-medium cursor-pointer;
+}
+
+.btn-external img {
+  @apply w-6 h-6;
+}
+
+/* ---------- Caja de registro ---------- */
+.register-card {
+  @apply bg-white bg-opacity-90 backdrop-blur-md shadow-2xl;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+}
+
+/* ---------- Textos y detalles ---------- */
+h1 span {
+  letter-spacing: 0.5px;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+/* ---------- Responsividad ---------- */
+@media (max-width: 480px) {
+  .input-field {
+    @apply p-2 text-sm;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+/* ---------- NAVBAR Y MENÚ ---------- */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Animación de entrada suave */
+.dropdown-content {
+  transform-origin: top right;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scaleY(0.9); }
+  to { opacity: 1; transform: scaleY(1); }
+}

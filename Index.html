@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso de Francés | IUE</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+      background-size: 300% 300%;
+      animation: gradientMove 12s ease-in-out infinite;
+      color: #1e293b;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    #nivelesMenu.show {
+      display: block;
+      animation: fadeIn 0.15s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bannerFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-banner {
+      animation: bannerFade 1s ease-out forwards;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    th {
+      background-color: #2563eb;
+      color: white;
+      text-align: left;
+      padding: 12px;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- 🔹 NAVBAR -->
+  <header class="navbar fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between">
+      <!-- Logo + título -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img
+          src="logo-iue.png"
+          alt="Institución Universitaria de Envigado"
+          class="h-12 w-auto"
+        />
+        <span class="hidden md:block text-2xl font-semibold text-blue-700">
+          Aprende Francés <span class="text-slate-700">| IUE</span>
+        </span>
+      </a>
+
+      <!-- Menú principal -->
+      <nav class="relative flex items-center gap-6 sm:gap-8 text-slate-700 font-medium">
+        <a href="index.html" class="hover:text-blue-600 transition">Inicio</a>
+        <a href="#" class="hover:text-blue-600 transition">Contacto</a>
+        <a href="#" class="hover:text-blue-600 transition">Notas</a>
+
+        <!-- Dropdown Niveles -->
+        <div class="relative">
+          <button id="nivelesBtn" class="flex items-center gap-1 hover:text-blue-600">
+            Niveles
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div id="nivelesMenu"
+               class="hidden absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
+            <a href="https://sites.google.com/view/franais-niveau-1/inicio" target="_blank" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 1 - A1.1</a>
+            <a href="nivel2.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 2 - A1.2</a>
+            <a href="https://sites.google.com/view/franais-niveau-3-iue/inicio" target="_blank" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 3 - A2.1</a>
+            <a href="https://sites.google.com/view/franaisniveau4iue/inicio" target="_blank" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 4 - A2.2</a>
+            <a href="nivel5.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 5 - B1.1</a>
+            <a href="nivel6.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 6 - B1.2</a>
+            <a href="nivel7.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 7 - B2</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="h-20"></div>
+
+  <!-- 🔹 PSEUDO-BANNER INSTITUCIONAL -->
+  <section class="w-full flex flex-col items-center justify-center text-center py-12 px-6 bg-white/40 backdrop-blur-md shadow-lg rounded-2xl mx-auto mt-6 max-w-6xl animate-banner">
+    <img src="logo-iue.png" alt="Logo Institución Universitaria de Envigado" class="w-56 sm:w-72 mb-4 drop-shadow-lg mx-auto" />
+
+    <h1 class="text-4xl sm:text-5xl font-bold text-blue-700 mb-3">
+      Curso de Francés
+    </h1>
+    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">
+      Institución Universitaria de Envigado 🇫🇷
+    </h2>
+
+    <p class="text-gray-700 max-w-3xl text-lg leading-relaxed text-justify">
+      Este curso de francés se dicta en la <strong>Institución Universitaria de Envigado</strong> y abarca desde el nivel 1 hasta el nivel 7. 
+      Está diseñado para guiar al estudiante desde sus primeros pasos en el idioma hasta alcanzar un nivel de competencia <strong>B1+</strong>, 
+      brindando una experiencia de aprendizaje integral, moderna e interactiva.  
+      <br><br>
+      A través de los siete niveles, el estudiante podrá participar en <strong>talleres, quices y juegos didácticos</strong> 
+      que fomentan la práctica real del idioma. Además, podrá <strong>consultar notas en tiempo real</strong>, comunicarse con su docente 
+      y realizar solicitudes directamente a la Escuela de Idiomas.  
+      <br><br>
+      Cada nivel aborda las competencias necesarias para alcanzar una comunicación fluida y segura en francés, integrando lectura, 
+      escritura, escucha y conversación de manera progresiva.
+    </p>
+  </section>
+
+  <!-- 🔹 TABLA DE NIVELES -->
+  <main class="flex-grow pt-8 pb-16 px-6 flex flex-col items-center text-center max-w-6xl mx-auto">
+    <div class="overflow-x-auto w-full mt-10">
+      <table>
+        <thead>
+          <tr>
+            <th>Nivel</th>
+            <th>Objetivo</th>
+            <th>Gramática</th>
+            <th>Vocabulario</th>
+            <th>Habilidad Clave</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nivel 1 (A1.1)</strong><br>El primer contacto</td>
+            <td>Presentarse, saludar, preguntar identidad y entorno.</td>
+            <td>Être, s’appeler, avoir, verbos -ER, artículos, negación, interrogativos.</td>
+            <td>Saludos, alfabeto, números, nacionalidades, familia, colores.</td>
+            <td>Presentarse, deletrear, decir nacionalidad, contar.</td>
+          </tr>
+          <tr>
+            <td><strong>Nivel 2 (A1.2)</strong><br>La vida cotidiana</td>
+            <td>Describir rutina, gustos y entorno. Realizar tareas simples.</td>
+            <td>Aller, faire, venir, vouloir, pouvoir, reflexivos, futur proche, hora y fecha.</td>
+            <td>Rutina, comida, ciudad, tiendas, números hasta 1000.</td>
+            <td>Describir un día, pedir en restaurante, preguntar direcciones.</td>
+          </tr>
+          <tr>
+            <td><strong>Nivel 3 (A2.1)</strong><br>Experiencias pasadas</td>
+            <td>Narrar eventos en pasado, describir vivienda y entorno.</td>
+            <td>Passé composé, imparfait, partitivos, pronombres directos.</td>
+            <td>Casa, ropa, clima, salud, transporte.</td>
+            <td>Contar el fin de semana, describir clima o casa.</td>
+          </tr>
+          <tr>
+            <td><strong>Nivel 4 (A2.2)</strong><br>Consolidación</td>
+            <td>Comparar, describir, hacer planes, dominar pasado y futuro.</td>
+            <td>Passé composé vs imparfait, pronombres, comparativos, futur simple.</td>
+            <td>Viajes, vacaciones, educación, emociones.</td>
+            <td>Contar anécdotas, planificar viajes, comparar objetos.</td>
+          </tr>
+          <tr>
+            <td><strong>Nivel 5 (B1.1)</strong><br>Opiniones y puntos de vista</td>
+            <td>Dar opiniones, expresar deseos, entender ideas principales.</td>
+            <td>Pronombres relativos, conditionnel présent, hipótesis, subjuntivo, pasiva.</td>
+            <td>Medios, ambiente, relaciones personales.</td>
+            <td>Dar consejos, expresar deseos, entender noticieros.</td>
+          </tr>
+          <tr>
+            <td><strong>Nivel 6 (B1.2)</strong><br>Argumentación</td>
+            <td>Justificar opiniones, debatir, entender textos largos.</td>
+            <td>Subjonctif, pronombre dont, discurso indirecto, conectores, gerundio.</td>
+            <td>Mundo laboral, cine, literatura, temas sociales.</td>
+            <td>Escribir carta de motivación, debatir, resumir películas.</td>
+          </tr>
+          <tr>
+            <td><strong>Nivel 7 (B2)</strong><br>Independencia y fluidez</td>
+            <td>Comunicarse con espontaneidad, entender ideas complejas.</td>
+            <td>Plus-que-parfait, conditionnel passé, subjonctif passé, conectores complejos.</td>
+            <td>Temas abstractos, actualidad, expresiones idiomáticas.</td>
+            <td>Escribir ensayos, presentaciones, entender hablantes nativos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- 🔹 FOOTER -->
+  <footer class="bg-white/90 text-center py-4 text-gray-600 text-sm mt-6">
+    © 2025 Institución Universitaria de Envigado — Programa de Francés | Desarrollado por David Jaramillo.
+  </footer>
+
+  <!-- Script del menú -->
+  <script>
+    const btn = document.getElementById('nivelesBtn');
+    const menu = document.getElementById('nivelesMenu');
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const hidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !hidden);
+      if (hidden) menu.classList.add('show'); else menu.classList.remove('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.add('hidden'); menu.classList.remove('show');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        menu.classList.add('hidden');
+        menu.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
