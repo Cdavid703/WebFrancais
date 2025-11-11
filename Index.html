@@ -5,11 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Curso de Francés | IUE</title>
 
+  <!-- 🚀 Redirección automática al registro con fallback -->
+  <meta http-equiv="refresh" content="0; url=register.html">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Loader institucional
+      const loader = document.createElement("div");
+      loader.innerHTML = `
+        <div style="display:flex;justify-content:center;align-items:center;
+                    height:100vh;background:#1e3a8a;color:white;
+                    flex-direction:column;font-family:Poppins,sans-serif;">
+          <img src="Images/logo-iue.png" alt="Logo IUE" style="width:100px;margin-bottom:1rem;">
+          <h2 style="font-size:1.5rem;margin-bottom:1rem;">Redirigiendo al registro...</h2>
+          <div style="border:4px solid #3b82f6;border-top:4px solid white;
+                      border-radius:50%;width:40px;height:40px;
+                      animation:spin 1s linear infinite;"></div>
+          <style>@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}</style>
+        </div>`;
+      document.body.appendChild(loader);
+
+      // Redirección principal
+      if (
+        window.location.pathname === "/" ||
+        window.location.pathname.endsWith("index.html")
+      ) {
+        setTimeout(() => {
+          window.location.replace("register.html");
+        }, 700);
+      }
+    });
+  </script>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fuente -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Images/favicon.png">
