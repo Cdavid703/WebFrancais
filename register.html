@@ -113,7 +113,7 @@
 
     #formMessage {
       margin-top: 0.75rem;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -157,10 +157,14 @@
     <!-- Mensaje dinámico -->
     <p id="formMessage" class="text-gray-600"></p>
 
-    <!-- Botón para avanzar sin registro -->
-    <a href="index.html" class="block mt-3">
-      <button class="btn-secondary">Avanzar sin registrarme</button>
-    </a>
+    <!-- 🔹 Botón para avanzar sin registrarse -->
+    <button
+      type="button"
+      id="skipBtn"
+      class="btn-secondary w-full mt-3"
+    >
+      Avanzar sin registrarme
+    </button>
 
     <!-- Separador -->
     <div class="flex items-center my-6">
@@ -181,12 +185,106 @@
     <!-- Enlace de inicio de sesión -->
     <p class="text-sm text-gray-500 mt-6">
       ¿Ya tienes una cuenta?
-      <a href="#" class="text-blue-600 hover:underline font-medium"
-        >Inicia sesión</a
+      <button
+        id="loginBtn"
+        class="text-blue-600 hover:underline font-medium cursor-pointer"
       >
+        Inicia sesión
+      </button>
     </p>
   </div>
 
-  <script src="./js/js-register.js"></script>
+  <!-- 🔹 Script para conexión y redirección -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("registerForm");
+      const loginBtn = document.getElementById("loginBtn");
+      const skipBtn = document.getElementById("skipBtn");
+      const messageBox = document.getElementById("formMessage");
+
+      const API_BASE = "https://webfrancais-backend.onrender.com/api/auth";
+
+      const showMessage = (msg, type = "info") => {
+        messageBox.textContent = msg;
+        messageBox.className =
+          type === "success"
+            ? "text-green-600 font-semibold"
+            : type === "error"
+            ? "text-red-600 font-semibold"
+            : "text-gray-700";
+      };
+
+      // 🧾 REGISTRO
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (!name || !email || !password) {
+          showMessage("⚠️ Completa todos los campos.", "error");
+          return;
+        }
+
+        try {
+          showMessage("⏳ Registrando usuario...");
+          const res = await fetch(`${API_BASE}/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            showMessage(`✅ Registro exitoso. Bienvenido, ${data.user.name}!`, "success");
+            setTimeout(() => (window.location.href = "Index.html"), 1500);
+          } else {
+            showMessage(`❌ ${data.message}`, "error");
+          }
+        } catch (err) {
+          console.error(err);
+          showMessage("⚠️ Error de conexión con el servidor.", "error");
+        }
+      });
+
+      // 🔐 LOGIN
+      loginBtn.addEventListener("click", async () => {
+        const email = prompt("Ingresa tu correo electrónico:");
+        const password = prompt("Ingresa tu contraseña:");
+
+        if (!email || !password) {
+          showMessage("⚠️ Debes ingresar ambos campos.", "error");
+          return;
+        }
+
+        try {
+          showMessage("⏳ Verificando usuario...");
+          const res = await fetch(`${API_BASE}/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            showMessage(`✅ Bienvenido de nuevo, ${data.user.name}!`, "success");
+            setTimeout(() => (window.location.href = "Index.html"), 1500);
+          } else {
+            showMessage(`❌ ${data.message}`, "error");
+          }
+        } catch (err) {
+          console.error(err);
+          showMessage("⚠️ No se pudo conectar con el servidor.", "error");
+        }
+      });
+
+      // 🔹 AVANZAR SIN REGISTRARSE
+      skipBtn.addEventListener("click", () => {
+        window.location.href = "Index.html";
+      });
+    });
+  </script>
 </body>
 </html>
