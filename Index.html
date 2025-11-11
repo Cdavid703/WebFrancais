@@ -3,54 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curso de Francés | IUE</title>
-
-  <!-- 🚀 Redirección automática al registro con fallback -->
-  <meta http-equiv="refresh" content="0; url=register.html">
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Loader institucional
-      const loader = document.createElement("div");
-      loader.innerHTML = `
-        <div style="display:flex;justify-content:center;align-items:center;
-                    height:100vh;background:#1e3a8a;color:white;
-                    flex-direction:column;font-family:Poppins,sans-serif;">
-          <img src="Images/logo-iue.png" alt="Logo IUE" style="width:100px;margin-bottom:1rem;">
-          <h2 style="font-size:1.5rem;margin-bottom:1rem;">Redirigiendo al registro...</h2>
-          <div style="border:4px solid #3b82f6;border-top:4px solid white;
-                      border-radius:50%;width:40px;height:40px;
-                      animation:spin 1s linear infinite;"></div>
-          <style>@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}</style>
-        </div>`;
-      document.body.appendChild(loader);
-
-      // Redirección principal
-      if (
-        window.location.pathname === "/" ||
-        window.location.pathname.endsWith("index.html")
-      ) {
-        setTimeout(() => {
-          window.location.replace("register.html");
-        }, 700);
-      }
-    });
-  </script>
+  <title>Registro | Aprende Francés con David Jaramillo</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fuente -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <style>
     body {
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
       background-size: 300% 300%;
       animation: gradientMove 12s ease-in-out infinite;
@@ -63,230 +26,231 @@
       100% { background-position: 0% 0%; }
     }
 
-    .navbar {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    #nivelesMenu.show {
-      display: block;
-      animation: fadeIn 0.15s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes bannerFade {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-banner {
-      animation: bannerFade 1s ease-out forwards;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      background: white;
+    .register-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
       border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
     }
 
-    th {
+    .register-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      background: white;
+      color: #1f2937;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .input-field:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary {
+      width: 100%;
       background-color: #2563eb;
       color: white;
-      text-align: left;
-      padding: 12px;
       font-weight: 600;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+      transition: all 0.3s ease;
     }
 
-    td {
-      padding: 12px;
-      border-bottom: 1px solid #e5e7eb;
-      vertical-align: top;
+    .btn-primary:hover {
+      background-color: #1d4ed8;
     }
 
-    tr:last-child td {
-      border-bottom: none;
+    .btn-secondary {
+      width: 100%;
+      background-color: #e5e7eb;
+      color: #1f2937;
+      font-weight: 500;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #d1d5db;
+    }
+
+    .btn-external {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background-color: white;
+      border: 1px solid #d1d5db;
+      color: #374151;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-external:hover {
+      background-color: #f3f4f6;
+    }
+
+    .btn-external img {
+      width: 24px;
+      height: 24px;
+    }
+
+    #formMessage {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      min-height: 1.5em;
     }
   </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
-
-  <!-- 🔹 NAVBAR -->
-  <header class="navbar fixed top-0 inset-x-0 z-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center justify-between">
-      <!-- Logo + título -->
-      <a href="index.html" class="flex items-center gap-3">
-        <img
-          src="logo-iue.png"
-          alt="Institución Universitaria de Envigado"
-          class="h-12 w-auto"
-        />
-        <span class="hidden md:block text-2xl font-semibold text-blue-700">
-          Aprende Francés <span class="text-slate-700">| IUE</span>
-        </span>
-      </a>
-
-      <!-- Menú principal -->
-      <nav class="relative flex items-center gap-6 sm:gap-8 text-slate-700 font-medium">
-        <a href="index.html" class="hover:text-blue-600 transition">Inicio</a>
-        <a href="#" class="hover:text-blue-600 transition">Contacto</a>
-        <a href="#" class="hover:text-blue-600 transition">Notas</a>
-
-        <!-- Dropdown Niveles -->
-        <div class="relative">
-          <button id="nivelesBtn" class="flex items-center gap-1 hover:text-blue-600">
-            Niveles
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-
-          <div id="nivelesMenu"
-               class="hidden absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
-            <a href="https://sites.google.com/view/franais-niveau-1/inicio" target="_blank" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 1 - A1.1</a>
-            <a href="nivel2.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 2 - A1.2</a>
-            <a href="https://sites.google.com/view/franais-niveau-3-iue/inicio" target="_blank" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 3 - A2.1</a>
-            <a href="https://sites.google.com/view/franaisniveau4iue/inicio" target="_blank" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 4 - A2.2</a>
-            <a href="nivel5.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 5 - B1.1</a>
-            <a href="nivel6.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 6 - B1.2</a>
-            <a href="nivel7.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">Nivel 7 - B2</a>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <div class="h-20"></div>
-
-  <!-- 🔹 PSEUDO-BANNER INSTITUCIONAL -->
-  <section class="w-full flex flex-col items-center justify-center text-center py-12 px-6 bg-white/40 backdrop-blur-md shadow-lg rounded-2xl mx-auto mt-6 max-w-6xl animate-banner">
-    <img src="logo-iue.png" alt="Logo Institución Universitaria de Envigado" class="w-56 sm:w-72 mb-4 drop-shadow-lg mx-auto" />
-
-    <h1 class="text-4xl sm:text-5xl font-bold text-blue-700 mb-3">
-      Curso de Francés
+<body class="min-h-screen flex items-center justify-center px-4">
+  <div class="register-card p-8 w-full max-w-md text-center">
+    <h1 class="text-3xl font-bold text-blue-700 mb-2">
+      Apprends le français <span class="text-gray-800 text-lg font-semibold">FR</span> 🇫🇷
     </h1>
-    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">
-      Institución Universitaria de Envigado 🇫🇷
-    </h2>
-
-    <p class="text-gray-700 max-w-3xl text-lg leading-relaxed text-justify">
-      Este curso de francés se dicta en la <strong>Institución Universitaria de Envigado</strong> y abarca desde el nivel 1 hasta el nivel 7. 
-      Está diseñado para guiar al estudiante desde sus primeros pasos en el idioma hasta alcanzar un nivel de competencia <strong>B1+</strong>, 
-      brindando una experiencia de aprendizaje integral, moderna e interactiva.  
-      <br><br>
-      A través de los siete niveles, el estudiante podrá participar en <strong>talleres, quices y juegos didácticos</strong> 
-      que fomentan la práctica real del idioma. Además, podrá <strong>consultar notas en tiempo real</strong>, comunicarse con su docente 
-      y realizar solicitudes directamente a la Escuela de Idiomas.  
-      <br><br>
-      Cada nivel aborda las competencias necesarias para alcanzar una comunicación fluida y segura en francés, integrando lectura, 
-      escritura, escucha y conversación de manera progresiva.
+    <p class="text-gray-600 mb-6">
+      Regístrate para comenzar tu camino hacia el dominio del francés.
     </p>
-  </section>
 
-  <!-- 🔹 TABLA DE NIVELES -->
-  <main class="flex-grow pt-8 pb-16 px-6 flex flex-col items-center text-center max-w-6xl mx-auto">
-    <div class="overflow-x-auto w-full mt-10">
-      <table>
-        <thead>
-          <tr>
-            <th>Nivel</th>
-            <th>Objetivo</th>
-            <th>Gramática</th>
-            <th>Vocabulario</th>
-            <th>Habilidad Clave</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Nivel 1 (A1.1)</strong><br>El primer contacto</td>
-            <td>Presentarse, saludar, preguntar identidad y entorno.</td>
-            <td>Être, s’appeler, avoir, verbos -ER, artículos, negación, interrogativos.</td>
-            <td>Saludos, alfabeto, números, nacionalidades, familia, colores.</td>
-            <td>Presentarse, deletrear, decir nacionalidad, contar.</td>
-          </tr>
-          <tr>
-            <td><strong>Nivel 2 (A1.2)</strong><br>La vida cotidiana</td>
-            <td>Describir rutina, gustos y entorno. Realizar tareas simples.</td>
-            <td>Aller, faire, venir, vouloir, pouvoir, reflexivos, futur proche, hora y fecha.</td>
-            <td>Rutina, comida, ciudad, tiendas, números hasta 1000.</td>
-            <td>Describir un día, pedir en restaurante, preguntar direcciones.</td>
-          </tr>
-          <tr>
-            <td><strong>Nivel 3 (A2.1)</strong><br>Experiencias pasadas</td>
-            <td>Narrar eventos en pasado, describir vivienda y entorno.</td>
-            <td>Passé composé, imparfait, partitivos, pronombres directos.</td>
-            <td>Casa, ropa, clima, salud, transporte.</td>
-            <td>Contar el fin de semana, describir clima o casa.</td>
-          </tr>
-          <tr>
-            <td><strong>Nivel 4 (A2.2)</strong><br>Consolidación</td>
-            <td>Comparar, describir, hacer planes, dominar pasado y futuro.</td>
-            <td>Passé composé vs imparfait, pronombres, comparativos, futur simple.</td>
-            <td>Viajes, vacaciones, educación, emociones.</td>
-            <td>Contar anécdotas, planificar viajes, comparar objetos.</td>
-          </tr>
-          <tr>
-            <td><strong>Nivel 5 (B1.1)</strong><br>Opiniones y puntos de vista</td>
-            <td>Dar opiniones, expresar deseos, entender ideas principales.</td>
-            <td>Pronombres relativos, conditionnel présent, hipótesis, subjuntivo, pasiva.</td>
-            <td>Medios, ambiente, relaciones personales.</td>
-            <td>Dar consejos, expresar deseos, entender noticieros.</td>
-          </tr>
-          <tr>
-            <td><strong>Nivel 6 (B1.2)</strong><br>Argumentación</td>
-            <td>Justificar opiniones, debatir, entender textos largos.</td>
-            <td>Subjonctif, pronombre dont, discurso indirecto, conectores, gerundio.</td>
-            <td>Mundo laboral, cine, literatura, temas sociales.</td>
-            <td>Escribir carta de motivación, debatir, resumir películas.</td>
-          </tr>
-          <tr>
-            <td><strong>Nivel 7 (B2)</strong><br>Independencia y fluidez</td>
-            <td>Comunicarse con espontaneidad, entender ideas complejas.</td>
-            <td>Plus-que-parfait, conditionnel passé, subjonctif passé, conectores complejos.</td>
-            <td>Temas abstractos, actualidad, expresiones idiomáticas.</td>
-            <td>Escribir ensayos, presentaciones, entender hablantes nativos.</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- FORMULARIO -->
+    <form id="registerForm" class="space-y-4 text-center">
+      <input type="text" id="name" class="input-field" placeholder="Nombre completo" required />
+      <input type="email" id="email" class="input-field" placeholder="Correo electrónico" required />
+      <input type="password" id="password" class="input-field" placeholder="Contraseña" required />
+
+      <button type="submit" class="btn-primary mt-2">Registrarme</button>
+    </form>
+
+    <!-- Botón de login -->
+    <button id="loginBtn"
+      class="w-full bg-gray-100 border border-gray-300 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-lg transition-all duration-300 mt-2 shadow-sm">
+      Usuario ya registrado
+    </button>
+
+    <!-- Mensaje dinámico -->
+    <p id="formMessage" class="text-gray-600 mt-3"></p>
+
+    <!-- Botón de continuar sin registrarse -->
+    <a href="Index.html" class="block mt-3">
+      <button class="btn-secondary">Avanzar sin registrarme</button>
+    </a>
+
+    <!-- Separador -->
+    <div class="flex items-center my-6">
+      <hr class="flex-grow border-gray-300" />
+      <span class="px-2 text-gray-500 text-sm">o</span>
+      <hr class="flex-grow border-gray-300" />
     </div>
-  </main>
 
-  <!-- 🔹 FOOTER -->
-  <footer class="bg-white/90 text-center py-4 text-gray-600 text-sm mt-6">
-    © 2025 Institución Universitaria de Envigado — Programa de Francés | Desarrollado por David Jaramillo.
-  </footer>
+    <!-- Botón de Google -->
+    <button id="googleBtn" class="btn-external">
+      <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
+      <span>Registrarme con Google</span>
+    </button>
 
-  <!-- Script del menú -->
+    <!-- Enlace de inicio de sesión -->
+    <p class="text-sm text-gray-500 mt-6">
+      ¿Tienes problemas? <a href="#" class="text-blue-600 hover:underline font-medium">Contacta soporte</a>
+    </p>
+  </div>
+
+  <!-- Script de conexión -->
   <script>
-    const btn = document.getElementById('nivelesBtn');
-    const menu = document.getElementById('nivelesMenu');
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("registerForm");
+      const loginBtn = document.getElementById("loginBtn");
+      const messageBox = document.getElementById("formMessage");
 
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const hidden = menu.classList.contains('hidden');
-      menu.classList.toggle('hidden', !hidden);
-      if (hidden) menu.classList.add('show'); else menu.classList.remove('show');
-    });
+      const API_BASE = "https://webfrancais-backend.onrender.com/api/auth";
 
-    document.addEventListener('click', (e) => {
-      if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.add('hidden'); menu.classList.remove('show');
-      }
-    });
+      const showMessage = (msg, type = "info") => {
+        messageBox.textContent = msg;
+        messageBox.className =
+          type === "success"
+            ? "text-green-600 font-semibold"
+            : type === "error"
+            ? "text-red-600 font-semibold"
+            : "text-gray-700";
+      };
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        menu.classList.add('hidden');
-        menu.classList.remove('show');
-      }
+      // Registro
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (!name || !email || !password) {
+          showMessage("⚠️ Completa todos los campos.", "error");
+          return;
+        }
+
+        try {
+          showMessage("⏳ Registrando usuario...");
+          const res = await fetch(`${API_BASE}/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            showMessage(`✅ Registro exitoso. Bienvenido, ${data.user.name}!`, "success");
+            setTimeout(() => (window.location.href = "Index.html"), 1500);
+          } else {
+            showMessage(`❌ ${data.message}`, "error");
+          }
+        } catch (err) {
+          console.error(err);
+          showMessage("⚠️ Error de conexión con el servidor.", "error");
+        }
+      });
+
+      // Login
+      loginBtn.addEventListener("click", async () => {
+        const email = prompt("Ingresa tu correo electrónico:");
+        const password = prompt("Ingresa tu contraseña:");
+
+        if (!email || !password) {
+          showMessage("⚠️ Debes ingresar ambos campos.", "error");
+          return;
+        }
+
+        try {
+          showMessage("⏳ Verificando usuario...");
+          const res = await fetch(`${API_BASE}/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            showMessage(`✅ Bienvenido de nuevo, ${data.user.name}!`, "success");
+            setTimeout(() => (window.location.href = "Index.html"), 1500);
+          } else {
+            showMessage(`❌ ${data.message}`, "error");
+          }
+        } catch (err) {
+          console.error(err);
+          showMessage("⚠️ No se pudo conectar con el servidor.", "error");
+        }
+      });
     });
   </script>
 </body>
